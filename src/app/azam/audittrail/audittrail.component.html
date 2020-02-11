@@ -1,0 +1,198 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <div class="row">
+          <div class="col-md-12">
+            <nb-card>
+              <nb-card-header>Audit Trail</nb-card-header>
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label for="inputFirstName" class="label">Entity</label>
+                      <nb-select
+                        fullWidth
+                        selected="1"
+                        (selectedChange)="fetchEntityData($event)"
+                      >
+                        <nb-option value="">Select Entity ...</nb-option>
+                        <nb-option value="users">Users</nb-option>
+                        <nb-option value="user_roles">Usnb-er Roles</nb-option>
+                        <nb-option value="customer_servinb-ce_users"
+                          >Customer Service User</nb-option
+                        >
+                        <nb-option value="clients">Cliennb-ts</nb-option>
+                        <nb-option value="approvers">Appnb-rovers</nb-option>
+                        <nb-option value="bank_account_dnb-etails"
+                          >Bank Account Detail</nb-option
+                        >
+                        <nb-option value="client_represenb-ntatives"
+                          >Client Representative</nb-option
+                        >
+                        <nb-option value="delegates">Delnb-egates</nb-option>
+                        <nb-option value="representativenb-s"
+                          >Representative</nb-option
+                        >
+                        <nb-option value="representativenb-_custom_messages"
+                          >Representative Custom Message</nb-option
+                        >
+                        <nb-option value="payment_requesnb-ts"
+                          >Payment Request</nb-option
+                        >
+                        <nb-option value="payment_requesnb-t_approvers"
+                          >Payment Request Approver</nb-option
+                        >
+                        <nb-option value="orion_sales_ornb-ders"
+                          >Orion Sales Order</nb-option
+                        >
+                        <nb-option value="orion_sales_ornb-der_items"
+                          >Orion Sales Order Item</nb-option
+                        >
+                        <nb-option value="shipments">Shinb-pments</nb-option>
+                        <nb-option value="shipment_locatnb-ions"
+                          >Shipment Locations</nb-option
+                        >
+                        <nb-option value="credit_users"
+                          >nb-Credit Users</nb-option
+                        >
+                        <nb-option value="salesnb-_orders"
+                          >Netsuite Sales Order</nb-option
+                        >
+                        <nb-option value="sub_snb-ales_orders"
+                          >Netsuite Sub Sales Order</nb-option
+                        >
+                      </nb-select>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label for="inputLastName" class="label"
+                        >Enter Entity</label
+                      >
+                      <input
+                        type="text"
+                        nbInput
+                        fullWidth
+                        id="inputLastName"
+                        placeholder="Enter Entity"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label for="inputEmail" class="label"
+                        >Select Date Range</label
+                      >
+                      <input
+                        nbInput
+                        fullWidth
+                        placeholder="Range Picker"
+                        [nbDatepicker]="rangepicker"
+                      />
+                      <nb-rangepicker #rangepicker></nb-rangepicker>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label for="inputEmail" class="label"> </label>
+                      <button type="submit" nbButton>Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div></nb-card-header
+      >
+      <nb-card-body>
+        <ng2-smart-table
+          [settings]="settings"
+          [source]="source"
+          (deleteConfirm)="onDeleteConfirm($event)"
+        >
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<!--<nb-card>
+  <div class="row">
+    <div class="col-md-12">
+      <nb-card class="inline-form-card">
+        <nb-card-header>Inline form</nb-card-header>
+        <nb-card-body>
+          <form class="form-inline">
+            <input type="text" nbInput fullWidth placeholder="Jane Doe" />
+            <input type="text" nbInput fullWidth placeholder="Email" />
+            <nb-checkbox>Remember me</nb-checkbox>
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  <nb-card-header>
+    <div class="button-css ">
+      <div>Audit Trail</div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form>
+      <div class="form-group row">
+        <label for="gstProdCount" class="label col-sm-2 col-form-label"
+          >Guest Product Count</label
+        >
+        <div class="col-sm-4">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="gstProdCount"
+            placeholder="Enter Guest Product Count"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="podPayRequest" class="label col-sm-2 col-form-label"
+          >POD Payment Request expiration duration (Minutes)</label
+        >
+        <div class="col-sm-4">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="podPayRequest"
+            placeholder="Enter POD Payment Request expiration duration (Minutes)"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="minSalesOrderAmt" class="label col-sm-2 col-form-label"
+          >Minimum Sales Order Amount (TZS)</label
+        >
+        <div class="col-sm-4">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="minSalesOrderAmt"
+            placeholder="Enter Minimum Sales Order Amount (TZS)"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-4">
+          <button type="submit" nbButton hero status="primary">
+            <nb-icon icon="save"></nb-icon>SAVE
+          </button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+-->

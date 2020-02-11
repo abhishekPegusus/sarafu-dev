@@ -1,0 +1,48 @@
+<nb-card>
+  <nb-card-header>
+    <div class="button-css ">
+      <div>Transaction Limit Settings</div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form>
+      <div class="form-group row">
+        <label for="limitDaily" class="label col-sm-2 col-form-label"
+          >Daily Transaction Limit(TZS)</label
+        >
+        <div class="col-sm-4">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="limitDaily"
+            placeholder="Daily Transaction Limit"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="limitSingle" class="label col-sm-2 col-form-label"
+          >Single Transaction Limit(TZS)</label
+        >
+        <div class="col-sm-4">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="limitSingle"
+            placeholder="Single Transaction Limit"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-4">
+          <button type="submit" nbButton hero status="primary">
+            <nb-icon icon="save"></nb-icon>SAVE
+          </button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <div class="button-css ">
+          <div>Add Role</div>
+          <div class="buttons-row ">
+            <button [routerLink]="['../list']" nbButton outline>
+              <nb-icon icon="arrow-back"></nb-icon> Back
+            </button>
+          </div>
+        </div>
+      </nb-card-header>
+
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-2 col-form-label"
+              >Email</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="email"
+                nbInput
+                fullWidth
+                id="inputEmail1"
+                placeholder="Email"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-2 col-form-label"
+              >Password</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="password"
+                nbInput
+                fullWidth
+                id="inputPassword2"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 label">Radios</label>
+            <div class="col-sm-4">
+              <nb-radio-group>
+                <nb-radio>Option 1</nb-radio>
+                <nb-radio>Option 2</nb-radio>
+                <nb-radio disabled>Disabled Option</nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-4">
+              <button type="submit" nbButton hero status="primary">
+                <nb-icon icon="save"></nb-icon>SAVE
+              </button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
