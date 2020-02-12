@@ -17,3 +17,41 @@ nb-card.inline-form-card nb-card-body {
   display: flex;
   justify-content: space-between;
 }
+
+.singinContainer {
+  display: flex;
+}
+
+.signIn {
+  margin: auto;
+}
+.login-body {
+  margin: auto;
+}
+
+.innerContainer {
+  width: 50%;
+  margin: auto;
+}
+
+.fieldRow {
+  display: block;
+}
+
+.fieldInput {
+  width: 95% !important;
+  margin: auto;
+  display: flex;
+}
+
+.fieldBtn {
+  width: 95%;
+}
+
+.btnRow {
+  justify-content: center;
+}
+
+.loginContainer {
+  align-items: center;
+}

@@ -352,6 +352,23 @@ let superAdminMenu = [
         title: "Representative",
         icon: "person-outline",
         link: "sarafu/representative"
+      },
+      {
+        title: "Force Update",
+        icon: "browser-outline",
+        children: [
+          { title: "User", link: "sarafu/forceupdate/user" },
+          {
+            title: "Feature",
+
+            link: "sarafu/forceupdate/feature"
+          }
+        ]
+      },
+      {
+        title: "Settings",
+        icon: "settings-outline",
+        link: "sarafu/settings"
       }
     ]
   }

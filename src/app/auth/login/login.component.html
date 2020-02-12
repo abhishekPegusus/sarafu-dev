@@ -1,113 +1,65 @@
-<nb-layout>
+<nb-layout class="loginContainer">
   <nb-layout-column>
-    <nb-card>
-      <div class="row">
-        <div class="col-md-12">
-          <nb-card>
-            <nb-card-header>
-              <div>Sign In</div>
-            </nb-card-header>
-            <nb-layout></nb-layout>
-            <nb-card-body>
-              <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
-                <div class="form-group row">
-                  <label for="inputEmail1" class="label col-sm-2 col-form-label"
-                    >Email</label
-                  >
-                  <div class="col-sm-4">
-                    <input
-                      type="email"
-                      formControlName="email"
-                      nbInput
-                      fullWidth
-                      id="email"
-                      placeholder="Email"
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label
-                    for="inputPassword2"
-                    class="label col-sm-2 col-form-label"
-                    >Password</label
-                  >
-                  <div class="col-sm-4">
-                    <input
-                      type="password"
-                      formControlName="password"
-                      nbInput
-                      fullWidth
-                      id="password"
-                      placeholder="Password"
-                    />
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <div class="offset-sm-2 col-sm-4">
-                    <button type="submit" nbButton hero status="primary">
-                      Login
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </nb-card-body>
-          </nb-card>
-        </div>
-      </div>
-    </nb-card>
-  </nb-layout-column>
-</nb-layout>
-
-<!--<nb-card>
-  <div class="row">
-    <div class="col-md-12">
-      <nb-card>
-        <nb-card-header>
-          <div>Sign In</div>
-        </nb-card-header>
-        <nb-layout></nb-layout>
-        <nb-card-body>
-          <form>
-            <div class="form-group row">
-              <label for="inputEmail1" class="label col-sm-2 col-form-label"
-                >Email</label
-              >
-              <div class="col-sm-4">
+    <div class="row">
+      <div class="col-md-8 login-body">
+        <nb-card class="innerContainer">
+          <nb-card-header class="singinContainer">
+            <div class="signIn"><h1>Sign In</h1></div>
+          </nb-card-header>
+          <nb-card-body>
+            <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
+              <div class="form-group row fieldRow">
+                <label for="inputEmail1" class="label col-sm-2 col-form-label"
+                  >Username</label
+                >
+                <!-- <div class="col-sm-4"> -->
                 <input
                   type="email"
+                  formControlName="email"
                   nbInput
                   fullWidth
-                  id="inputEmail1"
-                  placeholder="Email"
+                  id="email"
+                  placeholder="Username"
+                  class="fieldInput"
                 />
+                <!-- </div> -->
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="inputPassword2" class="label col-sm-2 col-form-label"
-                >Password</label
-              >
-              <div class="col-sm-4">
+              <div class="form-group row fieldRow">
+                <label
+                  for="inputPassword2"
+                  class="label col-sm-2 col-form-label"
+                  >Password</label
+                >
+                <!-- <div class="col-sm-4">-->
                 <input
                   type="password"
+                  formControlName="password"
                   nbInput
                   fullWidth
-                  id="inputPassword2"
+                  id="password"
                   placeholder="Password"
+                  class="fieldInput"
                 />
+                <!--</div>-->
               </div>
-            </div>
 
-            <div class="form-group row">
-              <div class="offset-sm-2 col-sm-4">
-                <button type="submit" nbButton hero status="primary">
-                 Login
+              <div class="form-group row btnRow">
+                <!-- <div class="offset-sm-2 col-sm-4"> -->
+                <button
+                  type="submit"
+                  nbButton
+                  hero
+                  status="primary"
+                  class="fieldBtn"
+                >
+                  Login
                 </button>
+                <!-- </div> -->
               </div>
-            </div>
-          </form>
-        </nb-card-body>
-      </nb-card>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </div>
     </div>
-  </div>
-</nb-card>-->
+  </nb-layout-column>
+</nb-layout>

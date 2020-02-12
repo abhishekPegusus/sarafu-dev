@@ -38,18 +38,18 @@ const routes: Routes = [
         path: "auth",
         loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
       },
-      {
-        path: "forceupdate",
-        loadChildren: () =>
-          import("./forceupdate/forceupdate.module").then(
-            m => m.ForceupdateModule
-          )
-      },
-      {
-        path: "settings",
-        loadChildren: () =>
-          import("./settings/settings.module").then(m => m.SettingsModule)
-      },
+      // {
+      //   path: "forceupdate",
+      //   loadChildren: () =>
+      //     import("./sarafu/forceupdate/forceupdate.module").then(
+      //       m => m.ForceupdateModule
+      //     )
+      // },
+      // {
+      //   path: "settings",
+      //   loadChildren: () =>
+      //     import("./settings/settings.module").then(m => m.SettingsModule)
+      // },
       {
         path: "users",
         loadChildren: () =>

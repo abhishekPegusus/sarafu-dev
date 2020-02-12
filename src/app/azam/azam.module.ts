@@ -26,8 +26,7 @@ import { MiscellaneousModule } from "./miscellaneous/miscellaneous.module";
 import { GatewayTableComponent } from "./gateway/gateway-table.component";
 import { Ng2SmartTableModule } from "ng2-smart-table";
 import { UsersModule } from "./users/users.module";
-import { SettingsModule } from "./settings/settings.module";
-import { ForceupdateModule } from "./forceupdate/forceupdate.module";
+
 import { RolesModule } from "./roles/roles.module";
 import { IpwhitelistModule } from "./ipwhitelist/ipwhitelist.module";
 import { AudittrailComponent } from "./audittrail/audittrail.component";
@@ -61,9 +60,8 @@ import { AuthModule } from "./auth/auth.module";
     MiscellaneousModule,
     Ng2SmartTableModule,
     UsersModule,
-    SettingsModule,
     RolesModule,
-    ForceupdateModule,
+
     AuthModule,
     IpwhitelistModule
   ],
