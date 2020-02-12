@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <div class="button-css ">
+          <div>Add Representative</div>
+          <div class="buttons-row ">
+            <button [routerLink]="['../']" nbButton outline>
+              <nb-icon icon="arrow-back"></nb-icon> Back
+            </button>
+          </div>
+        </div>
+      </nb-card-header>
+
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <label for="mobileNumber" class="label col-sm-2 col-form-label"
+              >Mobile Number</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="mobileNumber"
+                placeholder="mobileNumber"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="fullName" class="label col-sm-2 col-form-label"
+              >Full Name</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="fullName"
+                placeholder="Enter Full Name..."
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="trkLicenseId" class="label col-sm-2 col-form-label"
+              >Truck License Id</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="trkLicenseId"
+                placeholder="Enter Truck License Id..."
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="password" class="label col-sm-2 col-form-label"
+              >Password</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="password"
+                placeholder="Enter Password..."
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="conPassword" class="label col-sm-2 col-form-label"
+              >Confirm Password</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="conPassword"
+                placeholder="Enter Confirm Password..."
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="assoCompany" class="label col-sm-2 col-form-label"
+              >Associate Company</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="assoCompany"
+                placeholder="Select Associate Company..."
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="customMessage" class="label col-sm-2 col-form-label"
+              >Provide Custom Message</label
+            >
+            <div class="col-sm-4">
+              <input type="text" nbInput fullWidth id="customMessage" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-4">
+              <button type="submit" nbButton hero status="primary">
+                <nb-icon icon="save"></nb-icon>SAVE
+              </button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

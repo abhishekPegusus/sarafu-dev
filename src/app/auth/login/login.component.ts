@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CookieService } from "ngx-cookie-service";
 import {
   FormControl,
   Validators,
@@ -13,7 +14,7 @@ import { RouterModule, Router } from "@angular/router";
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cookieService: CookieService) {}
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl("", [Validators.required]),
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
     console.log("VALUESSS=", this.loginForm.value);
     const formVal = this.loginForm.value;
     if (formVal.email == 1) {
-      this.router.navigate(["azam/dashboard"]);
+      this.cookieService.set(
+        "userInfo",
+        JSON.stringify({ userType: "superadmin" })
+      );
+      this.router.navigate(["azam/sarafu"]);
     }
   }
 }

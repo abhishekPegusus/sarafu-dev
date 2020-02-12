@@ -30,6 +30,11 @@ const routes: Routes = [
         component: AudittrailComponent
       },
       {
+        path: "sarafu",
+        loadChildren: () =>
+          import("./sarafu/sarafu.module").then(m => m.SarafuModule)
+      },
+      {
         path: "auth",
         loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
       },

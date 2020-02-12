@@ -23,6 +23,7 @@ import { RouterModule } from "@angular/router";
 
 import { AuthRoutingModule } from "./auth-routing.module";
 import { ShareModule } from "../azam/share/share.module";
+import { CookieService } from "ngx-cookie-service";
 import { AuthComponent } from "./auth.component";
 import { LoginComponent } from "./login/login.component";
 
@@ -51,6 +52,7 @@ import { LoginComponent } from "./login/login.component";
     NbUserModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [CookieService]
 })
 export class AuthModule {}

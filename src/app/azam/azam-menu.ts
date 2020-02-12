@@ -1,6 +1,6 @@
 import { NbMenuItem } from "@nebular/theme";
 
-export const MENU_ITEMS: NbMenuItem[] = [
+let menuArr = [
   {
     title: "E-commerce",
     icon: "shopping-cart-outline",
@@ -11,6 +11,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: "Dashboard",
     icon: "home-outline",
     link: "/azam/iot-dashboard"
+  },
+  {
+    title: "Sarafu",
+    icon: "home-outline",
+    link: "/azam/dashboard"
   },
   {
     title: "FEATURES",
@@ -331,3 +336,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   }
 ];
+
+let superAdminMenu = [
+  {
+    title: "Dashboard",
+    icon: "home-outline",
+    link: "/azam/sarafu/dashboard"
+  },
+  {
+    title: "Sarafu",
+    icon: "keypad-outline",
+    children: [
+      { title: "Clients", icon: "person-outline", link: "sarafu/clients" },
+      {
+        title: "Representative",
+        icon: "person-outline",
+        link: "sarafu/representative"
+      }
+    ]
+  }
+];
+
+export const MENU_ITEMS: NbMenuItem[] = superAdminMenu;

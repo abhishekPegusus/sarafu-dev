@@ -51,6 +51,7 @@ import { AuthModule } from "./auth/auth.module";
     NbTabsetModule,
     NbRouteTabsetModule,
     NbUserModule,
+
     AzamRoutingModule,
     // ThemeModule,
     ShareModule,

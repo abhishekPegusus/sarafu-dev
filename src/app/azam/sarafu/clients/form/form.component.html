@@ -1,0 +1,186 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <div class="button-css ">
+          <div>Add Client</div>
+          <div class="buttons-row ">
+            <button [routerLink]="['../']" nbButton outline>
+              <nb-icon icon="arrow-back"></nb-icon> Back
+            </button>
+          </div>
+        </div>
+      </nb-card-header>
+
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <label for="name" class="label col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="name"
+                placeholder="Name"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone" class="label col-sm-2 col-form-label"
+              >Phone</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="phone"
+                placeholder="phone"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="singleTraLimit" class="label col-sm-2 col-form-label"
+              >Single Transaction Limit(TZS)</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="singleTraLimit"
+                placeholder="Enter Single Transaction Limit..."
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dailyTraLimit" class="label col-sm-2 col-form-label"
+              >Daily Transaction Limit(TZS)</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="dailyTraLimit"
+                placeholder="Enter Daily Transaction Limit..."
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="promoCode" class="label col-sm-2 col-form-label"
+              >Promo Code</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="promoCode"
+                placeholder="Promo Code"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="portfolio" class="label col-sm-2 col-form-label"
+              >Portfolio Code</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="portfolio"
+                placeholder="Enter Portfolo Code..."
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="anaCode1" class="label col-sm-2 col-form-label"
+              >Analysis Code 01</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="anaCode1"
+                placeholder="Enter Analysis Code 1..."
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="anaCode2" class="label col-sm-2 col-form-label"
+              >Analysis Code 02</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="anaCode2"
+                placeholder="Enter Analysis Code 2..."
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="anaCode3" class="label col-sm-2 col-form-label"
+              >Analysis Code 03</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="anaCode3"
+                placeholder="Enter Analysis Code 3..."
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="password" class="label col-sm-2 col-form-label"
+              >Password</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="password"
+                nbInput
+                fullWidth
+                id="password"
+                placeholder="Enter Password"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="conPassword" class="label col-sm-2 col-form-label"
+              >Confirm Password</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="conPassword"
+                placeholder="Enter Confirm Password"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-4">
+              <button type="submit" nbButton hero status="primary">
+                <nb-icon icon="save"></nb-icon>SAVE
+              </button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
