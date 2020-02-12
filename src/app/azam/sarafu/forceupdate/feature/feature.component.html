@@ -1,0 +1,15 @@
+<nb-card>
+  <nb-card-header>
+    <div>Force Update By Feature</div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      noSanitize
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

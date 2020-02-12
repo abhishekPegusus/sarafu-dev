@@ -28,6 +28,18 @@ const routes: Routes = [
           import("./representative/representative.module").then(
             m => m.RepresentativeModule
           )
+      },
+      {
+        path: "settings",
+        loadChildren: () =>
+          import("./settings/settings.module").then(m => m.SettingsModule)
+      },
+      {
+        path: "forceupdate",
+        loadChildren: () =>
+          import("./forceupdate/forceupdate.module").then(
+            m => m.ForceupdateModule
+          )
       }
     ]
   }
