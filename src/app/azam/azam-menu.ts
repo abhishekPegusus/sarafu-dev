@@ -358,12 +358,22 @@ let superAdminMenu = [
         icon: "browser-outline",
         children: [
           { title: "User", link: "sarafu/forceupdate/user" },
-          {
-            title: "Feature",
-
-            link: "sarafu/forceupdate/feature"
-          }
+          { title: "Feature", link: "sarafu/forceupdate/feature" }
         ]
+      },
+      {
+        title: "User Management",
+        icon: "person-outline",
+        children: [
+          { title: "Users", link: "sarafu/users" },
+          { title: "Roles", link: "sarafu/roles" },
+          { title: "Ip Whitelist", link: "sarafu/ipwhitelist" }
+        ]
+      },
+      {
+        title: "Audit Trail",
+        icon: "shuffle-2-outline",
+        link: "sarafu/audittrail"
       },
       {
         title: "Settings",

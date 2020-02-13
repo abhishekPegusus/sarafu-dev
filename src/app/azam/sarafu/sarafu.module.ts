@@ -6,6 +6,9 @@ import { SarafuComponent } from "./sarafu.component";
 import { DashboardModule } from "../dashboard/dashboard.module";
 import { SettingsModule } from "./settings/settings.module";
 import { ForceupdateModule } from "./forceupdate/forceupdate.module";
+import { UsersModule } from "./users/users.module";
+import { RolesModule } from "./roles/roles.module";
+import { IpwhitelistModule } from "./ipwhitelist/ipwhitelist.module";
 
 @NgModule({
   declarations: [SarafuComponent],
@@ -14,7 +17,10 @@ import { ForceupdateModule } from "./forceupdate/forceupdate.module";
     SarafuRoutingModule,
     DashboardModule,
     SettingsModule,
-    ForceupdateModule
+    ForceupdateModule,
+    UsersModule,
+    RolesModule,
+    IpwhitelistModule
   ]
 })
 export class SarafuModule {}

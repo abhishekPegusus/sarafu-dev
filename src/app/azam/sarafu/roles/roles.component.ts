@@ -2,14 +2,14 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LocalDataSource } from "ng2-smart-table";
 
-import { SmartTableData } from "../../@core/data/smart-table";
+import { SmartTableData } from "../../../@core/data/smart-table";
 
 @Component({
   selector: "ngx-smart-table",
-  templateUrl: "./users.component.html",
-  styleUrls: ["./users.component.scss"]
+  templateUrl: "./roles.component.html",
+  styleUrls: ["./roles.component.scss"]
 })
-export class UsersComponent {
+export class RolesComponent {
   moduleName = "";
   settings = {
     add: {
@@ -64,7 +64,6 @@ export class UsersComponent {
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       this.moduleName = params.type;
-      console.log("Data=", params.type);
     });
   }
 

@@ -25,14 +25,8 @@ import { AzamRoutingModule } from "./azam-routing.module";
 import { MiscellaneousModule } from "./miscellaneous/miscellaneous.module";
 import { GatewayTableComponent } from "./gateway/gateway-table.component";
 import { Ng2SmartTableModule } from "ng2-smart-table";
-import { UsersModule } from "./users/users.module";
-
-import { RolesModule } from "./roles/roles.module";
-import { IpwhitelistModule } from "./ipwhitelist/ipwhitelist.module";
-import { AudittrailComponent } from "./audittrail/audittrail.component";
 import { CommonModule } from "@angular/common";
 import { ShareModule } from "./share/share.module";
-import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
   imports: [
@@ -58,13 +52,8 @@ import { AuthModule } from "./auth/auth.module";
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
-    Ng2SmartTableModule,
-    UsersModule,
-    RolesModule,
-
-    AuthModule,
-    IpwhitelistModule
+    Ng2SmartTableModule
   ],
-  declarations: [AzamComponent, GatewayTableComponent, AudittrailComponent]
+  declarations: [AzamComponent, GatewayTableComponent]
 })
 export class AzamModule {}

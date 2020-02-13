@@ -21,12 +21,10 @@ import { FormComponent } from "./form/form.component";
 //import { ButtonsComponent } from "./buttons/buttons.component";
 import { FormsModule as ngFormsModule } from "@angular/forms";
 import { Ng2SmartTableModule } from "ng2-smart-table";
-import { ShareModule } from "../share/share.module";
 
 @NgModule({
   imports: [
     // ThemeModule,
-    ShareModule,
     NbInputModule,
     NbCardModule,
     NbButtonModule,

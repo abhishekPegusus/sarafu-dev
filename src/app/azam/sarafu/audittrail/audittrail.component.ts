@@ -2,8 +2,8 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LocalDataSource } from "ng2-smart-table";
 
-import { SmartTableData } from "../../@core/data/smart-table";
-import { FeatureTableData } from "../../@core/data/feature-table";
+import { SmartTableData } from "../../../@core/data/smart-table";
+import { FeatureTableData } from "../../../@core/data/feature-table";
 
 @Component({
   selector: "sfu-audit",

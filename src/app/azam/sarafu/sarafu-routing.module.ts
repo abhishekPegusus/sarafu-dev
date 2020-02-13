@@ -40,6 +40,28 @@ const routes: Routes = [
           import("./forceupdate/forceupdate.module").then(
             m => m.ForceupdateModule
           )
+      },
+      {
+        path: "users",
+        loadChildren: () =>
+          import("./users/users.module").then(m => m.UsersModule)
+      },
+      {
+        path: "roles",
+        loadChildren: () =>
+          import("./roles/roles.module").then(m => m.RolesModule)
+      },
+      {
+        path: "ipwhitelist",
+        loadChildren: () =>
+          import("./ipwhitelist/ipwhitelist.module").then(
+            m => m.IpwhitelistModule
+          )
+      },
+      {
+        path: "audittrail",
+        loadChildren: () =>
+          import("./audittrail/audittrail.module").then(m => m.AudittrailModule)
       }
     ]
   }

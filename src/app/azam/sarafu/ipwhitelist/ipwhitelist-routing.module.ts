@@ -11,7 +11,8 @@ import { IpwhitelistComponent } from "./ipwhitelist.component";
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "list"
+    redirectTo: "list",
+    pathMatch: "full"
   },
   {
     path: "list",

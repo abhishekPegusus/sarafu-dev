@@ -6,7 +6,6 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { GatewayTableComponent } from "./gateway/gateway-table.component";
 import { ECommerceComponent } from "./e-commerce/e-commerce.component";
 import { NotFoundComponent } from "./miscellaneous/not-found/not-found.component";
-import { AudittrailComponent } from "./audittrail/audittrail.component";
 
 const routes: Routes = [
   {
@@ -26,47 +25,43 @@ const routes: Routes = [
         component: GatewayTableComponent
       },
       {
-        path: "audittrail",
-        component: AudittrailComponent
-      },
-      {
         path: "sarafu",
         loadChildren: () =>
           import("./sarafu/sarafu.module").then(m => m.SarafuModule)
       },
-      {
+      /*  {
         path: "auth",
         loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
       },
-      // {
-      //   path: "forceupdate",
-      //   loadChildren: () =>
-      //     import("./sarafu/forceupdate/forceupdate.module").then(
-      //       m => m.ForceupdateModule
-      //     )
-      // },
-      // {
-      //   path: "settings",
-      //   loadChildren: () =>
-      //     import("./settings/settings.module").then(m => m.SettingsModule)
-      // },
+        {
+        path: "forceupdate",
+        loadChildren: () =>
+          import("./sarafu/forceupdate/forceupdate.module").then(
+            m => m.ForceupdateModule
+          )
+      },
+      {
+        path: "settings",
+        loadChildren: () =>
+          import("./settings/settings.module").then(m => m.SettingsModule)
+      },
       {
         path: "users",
         loadChildren: () =>
-          import("./users/users.module").then(m => m.UsersModule)
+          import("./sarafu/users/users.module").then(m => m.UsersModule)
       },
       {
         path: "roles",
         loadChildren: () =>
-          import("./roles/roles.module").then(m => m.RolesModule)
+          import("./sarafu/roles/roles.module").then(m => m.RolesModule)
       },
       {
         path: "ipwhitelist",
         loadChildren: () =>
-          import("./ipwhitelist/ipwhitelist.module").then(
+          import("./sarafu/ipwhitelist/ipwhitelist.module").then(
             m => m.IpwhitelistModule
           )
-      },
+      },*/
       // {
       //   path: "users/:type",
       //   component: UsersComponent
@@ -79,7 +74,7 @@ const routes: Routes = [
       //   path: "users/new",
       //   component: UsersComponent
       // },
-      {
+      /*{
         path: "layout",
         loadChildren: () =>
           import("./layout/layout.module").then(m => m.LayoutModule)
@@ -135,8 +130,7 @@ const routes: Routes = [
           import("./miscellaneous/miscellaneous.module").then(
             m => m.MiscellaneousModule
           )
-      },
-      {
+      }*/ {
         path: "",
         redirectTo: "dashboard",
         pathMatch: "full"
