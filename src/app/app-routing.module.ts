@@ -8,6 +8,8 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent
 } from "@nebular/auth";
+import { AuthGuard } from './authguard/auth.guard';
+
 
 const routes: Routes = [
   // {
@@ -17,7 +19,8 @@ const routes: Routes = [
   // },
   {
     path: "azam",
-    loadChildren: () => import("./azam/azam.module").then(m => m.AzamModule)
+    loadChildren: () => import("./azam/azam.module").then(m => m.AzamModule),
+    canActivate: [AuthGuard]
   },
   {
     path: "auth",
@@ -63,6 +66,7 @@ const config: ExtraOptions = {
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

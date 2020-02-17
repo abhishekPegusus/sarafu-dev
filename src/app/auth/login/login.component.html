@@ -4,54 +4,57 @@
       <div class="col-md-8 login-body">
         <nb-card class="innerContainer">
           <nb-card-header class="singinContainer">
-            <div class="signIn"><h1>Sign In</h1></div>
+            <div class="signIn">
+              <h1>Sign In</h1>
+            </div>
           </nb-card-header>
           <nb-card-body>
             <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
               <div class="form-group row fieldRow">
-                <label for="inputEmail1" class="label col-sm-2 col-form-label"
-                  >Username</label
-                >
+                <label for="username" class="label col-sm-2 col-form-label">
+                  Username
+                </label>
                 <!-- <div class="col-sm-4"> -->
-                <input
-                  type="email"
-                  formControlName="email"
-                  nbInput
-                  fullWidth
-                  id="email"
-                  placeholder="Username"
-                  class="fieldInput"
-                />
+                <input type="text" formControlName="username" nbInput fullWidth id="username" placeholder="Username"
+                  class="fieldInput" required>
                 <!-- </div> -->
+                <div class="fieldInput" *ngIf="
+                    (submitted && username.invalid) ||
+                    (username.invalid && (username.dirty || username.touched))
+                  ">
+                  <p class="caption status-danger">Username is required!</p>
+                </div>
               </div>
               <div class="form-group row fieldRow">
-                <label
-                  for="inputPassword2"
-                  class="label col-sm-2 col-form-label"
-                  >Password</label
-                >
-                <!-- <div class="col-sm-4">-->
-                <input
-                  type="password"
-                  formControlName="password"
-                  nbInput
-                  fullWidth
-                  id="password"
-                  placeholder="Password"
-                  class="fieldInput"
-                />
-                <!--</div>-->
+                <label for="inputPassword2" class="label col-sm-2 col-form-label">
+                  Password
+                </label>
+                <!-- <div class="col-sm-4"> -->
+                <input type="password" formControlName="password" nbInput fullWidth id="password" placeholder="Password"
+                  class="fieldInput" required>
+                <!-- </div> -->
+                <div class="fieldInput" *ngIf="
+                    (submitted && password.invalid) ||
+                    (password.invalid && (password.dirty || password.touched))
+                  ">
+                  <p class="caption status-danger">Password is required!</p>
+                </div>
+              </div>
+
+              <div class="form-group row fieldRow">
+                <!-- <div class="col-sm-4"> -->
+
+                <nb-checkbox class="fieldInput" [value]="true">
+                  Remember Me
+                </nb-checkbox>
+
+                <!-- <a href="#" class="fieldInput">Forgot Password?</a> -->
+                <!-- </div> -->
               </div>
 
               <div class="form-group row btnRow">
                 <!-- <div class="offset-sm-2 col-sm-4"> -->
-                <button
-                  type="submit"
-                  nbButton
-                  hero
-                  status="primary"
-                  class="fieldBtn"
-                >
+                <button type="submit" nbButton hero status="primary" class="fieldBtn">
                   Login
                 </button>
                 <!-- </div> -->

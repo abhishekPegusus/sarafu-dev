@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule as ngFormsModule } from "@angular/forms";
 import {
   NbMenuModule,
   NbTreeGridModule,
@@ -26,10 +27,12 @@ import { ShareModule } from "../azam/share/share.module";
 import { CookieService } from "ngx-cookie-service";
 import { AuthComponent } from "./auth.component";
 import { LoginComponent } from "./login/login.component";
+import { ToastrComponent } from "./toastr/toastr.component";
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent],
+  declarations: [AuthComponent, LoginComponent, ToastrComponent],
   imports: [
+    ngFormsModule,
     RouterModule,
     CommonModule,
     AuthRoutingModule,

@@ -7,6 +7,12 @@ import {
   FormGroup
 } from "@angular/forms";
 import { RouterModule, Router } from "@angular/router";
+import {
+  NbComponentStatus,
+  NbGlobalPhysicalPosition,
+  NbToastrService
+} from "@nebular/theme";
+import { AuthService } from "../../service/auth.service";
 
 @Component({
   selector: "ngx-login",
@@ -14,23 +20,66 @@ import { RouterModule, Router } from "@angular/router";
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private cookieService: CookieService) {}
+  public loginForm: FormGroup;
+  submitted = false;
+  statusSuccess: NbComponentStatus = "success";
+  statusDanger: NbComponentStatus = "danger";
 
-  loginForm: FormGroup = new FormGroup({
-    email: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required])
-  });
+  constructor(
+    private router: Router,
+    private cookieService: CookieService,
+    public toastrService: NbToastrService,
+    public auth: AuthService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      username: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required])
+    });
+  }
+  get username() {
+    return this.loginForm.get("username");
+  }
+  get password() {
+    return this.loginForm.get("password");
+  }
+
   authenticate() {
-    console.log("VALUESSS=", this.loginForm.value);
-    const formVal = this.loginForm.value;
-    if (formVal.email == 1) {
-      this.cookieService.set(
-        "userInfo",
-        JSON.stringify({ userType: "superadmin" })
+    const config = {
+      status: this.statusDanger,
+      destroyByClick: true,
+      duration: 5000,
+      hasIcon: true,
+      position: NbGlobalPhysicalPosition.TOP_RIGHT,
+      preventDuplicates: true
+    };
+    this.submitted = true;
+
+    if (this.loginForm.valid) {
+      this.auth.login(this.loginForm.value).subscribe(
+        (response: any) => {
+          if (response.token && response.token !== "") {
+            config.status = this.statusSuccess;
+            this.toastrService.show("You have logged-in successfully.", "Login Success!!!", config);
+            this.cookieService.set("userInfo", JSON.stringify({ isLoggedIn: true, userType: "superadmin" }));
+            this.router.navigate(["azam/sarafu"]);
+          }
+        },
+        error => {
+          this.toastrService.show(
+            "Incorrect Credentials.",
+            "Login Failed!!!",
+            config
+          );
+        }
       );
-      this.router.navigate(["azam/sarafu"]);
+    } else {
+      this.toastrService.show(
+        "Username and Password are manadatory.",
+        "Invalid Values!!!",
+        config
+      );
     }
   }
 }

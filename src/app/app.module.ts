@@ -6,6 +6,7 @@ import { CoreModule } from "./@core/core.module";
 // import { ThemeModule } from "./@theme/theme.module";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
+
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -17,6 +18,8 @@ import {
 } from "@nebular/theme";
 import { ShareModule } from "./azam/share/share.module";
 import { CookieService } from "ngx-cookie-service";
+import { AuthGuard } from './authguard/auth.guard';
+
 // import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
@@ -41,6 +44,7 @@ import { CookieService } from "ngx-cookie-service";
     CoreModule.forRoot()
   ],
   bootstrap: [AppComponent],
-  providers: [CookieService]
+  providers: [CookieService, AuthGuard]
+
 })
-export class AppModule {}
+export class AppModule { }
