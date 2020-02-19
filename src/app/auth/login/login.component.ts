@@ -6,13 +6,10 @@ import {
   FormBuilder,
   FormGroup
 } from "@angular/forms";
+
 import { RouterModule, Router } from "@angular/router";
-import {
-  NbComponentStatus,
-  NbGlobalPhysicalPosition,
-  NbToastrService
-} from "@nebular/theme";
 import { AuthService } from "../../service/auth.service";
+import { CommonService } from '../../service/common.service';
 
 @Component({
   selector: "ngx-login",
@@ -22,13 +19,12 @@ import { AuthService } from "../../service/auth.service";
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   submitted = false;
-  statusSuccess: NbComponentStatus = "success";
-  statusDanger: NbComponentStatus = "danger";
+
 
   constructor(
     private router: Router,
     private cookieService: CookieService,
-    public toastrService: NbToastrService,
+    public CommonService: CommonService,
     public auth: AuthService
   ) { }
 
@@ -46,40 +42,26 @@ export class LoginComponent implements OnInit {
   }
 
   authenticate() {
-    const config = {
-      status: this.statusDanger,
-      destroyByClick: true,
-      duration: 5000,
-      hasIcon: true,
-      position: NbGlobalPhysicalPosition.TOP_RIGHT,
-      preventDuplicates: true
-    };
     this.submitted = true;
 
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe(
         (response: any) => {
+          console.log('User=', response)
           if (response.token && response.token !== "") {
-            config.status = this.statusSuccess;
-            this.toastrService.show("You have logged-in successfully.", "Login Success!!!", config);
+            this.CommonService.showToast("Login Success!!!", "You have logged-in successfully.", "success");
             this.cookieService.set("userInfo", JSON.stringify({ isLoggedIn: true, userType: "superadmin" }));
             this.router.navigate(["azam/sarafu"]);
+          } else {
+            this.CommonService.showToast("Login Failed!!!", "Incorrect Credentials.", "danger");
           }
         },
-        error => {
-          this.toastrService.show(
-            "Incorrect Credentials.",
-            "Login Failed!!!",
-            config
-          );
+        (error) => {
+          this.CommonService.showToast("Login Failed!!!", "Incorrect Credentials.", "danger");
         }
       );
     } else {
-      this.toastrService.show(
-        "Username and Password are manadatory.",
-        "Invalid Values!!!",
-        config
-      );
+      this.CommonService.showToast("Invalid Inputs!!!", "Username and Password are manadatory.", "danger");
     }
   }
 }

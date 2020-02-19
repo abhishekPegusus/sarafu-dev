@@ -12,11 +12,12 @@ import {
   NbSelectModule,
   NbUserModule
 } from "@nebular/theme";
+import { NbMomentDateModule } from '@nebular/moment';
 import { ClientsRoutingModule } from "./clients-routing.module";
 import { ClientsComponent } from "./clients.component";
 import { ListComponent } from "./list/list.component";
 import { FormComponent } from "./form/form.component";
-import { FormsModule as ngFormsModule } from "@angular/forms";
+import { FormsModule as ngFormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Ng2SmartTableModule } from "ng2-smart-table";
 
 @NgModule({
@@ -26,6 +27,7 @@ import { Ng2SmartTableModule } from "ng2-smart-table";
     ClientsRoutingModule,
     Ng2SmartTableModule,
     ngFormsModule,
+    ReactiveFormsModule,
     NbActionsModule,
     NbButtonModule,
     NbCardModule,
@@ -35,7 +37,8 @@ import { Ng2SmartTableModule } from "ng2-smart-table";
     NbInputModule,
     NbRadioModule,
     NbSelectModule,
-    NbUserModule
+    NbUserModule,
+    NbMomentDateModule
   ]
 })
-export class ClientsModule {}
+export class ClientsModule { }

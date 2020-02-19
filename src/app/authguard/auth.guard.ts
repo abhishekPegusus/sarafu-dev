@@ -29,6 +29,7 @@ export class AuthGuard implements CanActivate {
     // if (loginStatus) {
     //   cookieVal = JSON.parse(loginStatus);
     // }
+    console.log("Auth Guard=", cookieVal)
     if (cookieVal && cookieVal.isLoggedIn && cookieVal.isLoggedIn == true) {
 
       status = true;

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row center">
   <div class="col-md-12">
     <nb-card>
       <nb-card-header>
@@ -13,162 +13,268 @@
       </nb-card-header>
 
       <nb-card-body>
-        <form>
+        <form [formGroup]="clientsForm" (ngSubmit)="onSubmit()">
+
+          <!-- Name Field-->
           <div class="form-group row">
-            <label for="name" class="label col-sm-2 col-form-label">Name</label>
+            <label for="name" class="label col-sm-2 col-form-label">Name <span class="caption status-danger">
+                *</span></label>
             <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="name"
-                placeholder="Name"
-              />
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="phone" class="label col-sm-2 col-form-label"
-              >Phone</label
-            >
-            <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="phone"
-                placeholder="phone"
-              />
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="singleTraLimit" class="label col-sm-2 col-form-label"
-              >Single Transaction Limit(TZS)</label
-            >
-            <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="singleTraLimit"
-                placeholder="Enter Single Transaction Limit..."
-              />
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="dailyTraLimit" class="label col-sm-2 col-form-label"
-              >Daily Transaction Limit(TZS)</label
-            >
-            <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="dailyTraLimit"
-                placeholder="Enter Daily Transaction Limit..."
-              />
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="promoCode" class="label col-sm-2 col-form-label"
-              >Promo Code</label
-            >
-            <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="promoCode"
-                placeholder="Promo Code"
-              />
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="portfolio" class="label col-sm-2 col-form-label"
-              >Portfolio Code</label
-            >
-            <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="portfolio"
-                placeholder="Enter Portfolo Code..."
-              />
+              <input type="text" formControlName="name" nbInput fullWidth id="name" placeholder="Name" />
+
+              <div class="fieldInput" *ngIf="
+                     (submitted && clientsForm.get('name').invalid) ||
+                     (clientsForm.get('name').invalid && 
+                     (clientsForm.get('name').dirty || clientsForm.get('name').touched)) ">
+                <p class="caption status-danger">Name is required!</p>
+              </div>
             </div>
           </div>
 
+          <!-- Gender Field-->
           <div class="form-group row">
-            <label for="anaCode1" class="label col-sm-2 col-form-label"
-              >Analysis Code 01</label
-            >
+            <label for="gender" class="label col-sm-2 col-form-label">Gender <span class="caption status-danger">
+                *</span></label>
             <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="anaCode1"
-                placeholder="Enter Analysis Code 1..."
-              />
+              <nb-radio-group formControlName="gender" name="gender">
+                <nb-radio [value]="'male'">
+                  Male
+                </nb-radio>
+                <nb-radio [value]="'female'">
+                  Female
+                </nb-radio>
+              </nb-radio-group>
+              <div class="fieldInput" *ngIf="
+              (submitted && clientsForm.get('gender').invalid) ||
+              (clientsForm.get('gender').invalid && 
+              (clientsForm.get('gender').dirty || clientsForm.get('gender').touched)) ">
+                <p class="caption status-danger">Gender is required!</p>
+              </div>
             </div>
           </div>
 
+          <!-- Email Field -->
           <div class="form-group row">
-            <label for="anaCode2" class="label col-sm-2 col-form-label"
-              >Analysis Code 02</label
-            >
+            <label for="email" class="label col-sm-2 col-form-label">Email <span class="caption status-danger">
+                *</span></label>
             <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="anaCode2"
-                placeholder="Enter Analysis Code 2..."
-              />
+              <input type="email" formControlName="email" nbInput fullWidth id="email" placeholder="Enter Email..." />
+              <div class="fieldInput" *ngIf="
+              (submitted && clientsForm.get('email').invalid) ||
+              (clientsForm.get('email').invalid && 
+              (clientsForm.get('email').dirty || clientsForm.get('email').touched)) ">
+                <p class="caption status-danger">Valid Email is required!</p>
+              </div>
             </div>
           </div>
 
+          <!-- Mobile Field-->
           <div class="form-group row">
-            <label for="anaCode3" class="label col-sm-2 col-form-label"
-              >Analysis Code 03</label
-            >
+            <label for="mobileNumber" class="label col-sm-2 col-form-label">Mobile <span class="caption status-danger">
+                *</span></label>
             <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="anaCode3"
-                placeholder="Enter Analysis Code 3..."
-              />
+              <input type="text" formControlName="mobileNumber" nbInput fullWidth id="mobileNumber"
+                placeholder="Enter Mobile Number..." />
+              <div class="fieldInput" *ngIf="
+                (submitted && clientsForm.get('mobileNumber').invalid) ||
+                (clientsForm.get('mobileNumber').invalid && 
+                (clientsForm.get('mobileNumber').dirty || clientsForm.get('mobileNumber').touched)) ">
+                <p class="caption status-danger">Mobile Number is required!</p>
+              </div>
             </div>
           </div>
 
+          <!-- Date Of Birth Field-->
           <div class="form-group row">
-            <label for="password" class="label col-sm-2 col-form-label"
-              >Password</label
-            >
+            <label for="dateOfBirth" class="label col-sm-2 col-form-label">Date Of Birth <span
+                class="caption status-danger"> *</span></label>
             <div class="col-sm-4">
-              <input
-                type="password"
-                nbInput
-                fullWidth
-                id="password"
-                placeholder="Enter Password"
-              />
+              <input type="text" formControlName="dateOfBirth" nbInput fullWidth id="dateOfBirth"
+                placeholder="Select Date Of Birth..." [nbDatepicker]="formpicker" readonly />
+
+              <nb-datepicker #formpicker format="yyyy-MM-dd"></nb-datepicker>
+              <div class="fieldInput" *ngIf="
+                (submitted && clientsForm.get('dateOfBirth').invalid) ||
+                (clientsForm.get('dateOfBirth').invalid && 
+                (clientsForm.get('dateOfBirth').dirty || clientsForm.get('dateOfBirth').touched)) ">
+                <p class="caption status-danger">Date Of Birth is required!</p>
+              </div>
+
             </div>
           </div>
 
+          <!-- Country Field-->
           <div class="form-group row">
-            <label for="conPassword" class="label col-sm-2 col-form-label"
-              >Confirm Password</label
-            >
+            <label class="col-sm-2 label">Country <span class="caption status-danger"> *</span></label>
             <div class="col-sm-4">
-              <input
-                type="text"
-                nbInput
-                fullWidth
-                id="conPassword"
-                placeholder="Enter Confirm Password"
-              />
+              <nb-select formControlName="countryID" selected="" fullWidth>
+                <nb-option value="">Select Country</nb-option>
+                <nb-option *ngFor="let country of countries" [value]="country.ID">{{ country.name }}</nb-option>
+              </nb-select>
+              <div class="fieldInput" *ngIf="
+              (submitted && clientsForm.get('countryID').invalid) ||
+              (clientsForm.get('countryID').invalid && 
+              (clientsForm.get('countryID').dirty || clientsForm.get('countryID').touched)) ">
+                <p class="caption status-danger">Country is required!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- App Field-->
+          <div class="form-group row">
+            <label class="col-sm-2 label">App <span class="caption status-danger"> *</span></label>
+            <div class="col-sm-4">
+              <nb-select formControlName="appID" selected="" fullWidth>
+                <nb-option value="">Select App</nb-option>
+                <nb-option *ngFor="let app of apps" [value]="app.ID">{{ app.appName }}</nb-option>
+              </nb-select>
+              <div class="fieldInput" *ngIf="
+              (submitted && clientsForm.get('appID').invalid) ||
+              (clientsForm.get('appID').invalid && 
+              (clientsForm.get('appID').dirty || clientsForm.get('appID').touched)) ">
+                <p class="caption status-danger">App is required!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role Field-->
+          <div class="form-group row">
+            <label class="col-sm-2 label">Role <span class="caption status-danger"> *</span></label>
+            <div class="col-sm-4">
+              <nb-select formControlName="roleID" selected="" fullWidth>
+                <nb-option value="">Select Role</nb-option>
+                <nb-option *ngFor="let role of roles" [value]="role.ID">{{ role.RoleName }}</nb-option>
+              </nb-select>
+              <div class="fieldInput" *ngIf="
+              (submitted && clientsForm.get('roleID').invalid) ||
+              (clientsForm.get('roleID').invalid && 
+              (clientsForm.get('roleID').dirty || clientsForm.get('roleID').touched)) ">
+                <p class="caption status-danger">Role is required!</p>
+              </div>
+            </div>
+          </div>
+
+          <!--Allow Notification Field-->
+          <div class="form-group row">
+            <label for="allowNotification" class="label col-sm-2 col-form-label">Allow Notification <span
+                class="caption status-danger"> *</span></label>
+            <div class="col-sm-4">
+              <nb-radio-group formControlName="allowNotification" name="allowNotification">
+                <nb-radio [value]="'yes'">
+                  Yes
+                </nb-radio>
+                <nb-radio [value]="'no'">
+                  No
+                </nb-radio>
+              </nb-radio-group>
+              <div class="fieldInput" *ngIf="
+              (submitted && clientsForm.get('allowNotification').invalid) ||
+              (clientsForm.get('allowNotification').invalid && 
+              (clientsForm.get('allowNotification').dirty || clientsForm.get('allowNotification').touched)) ">
+                <p class="caption status-danger">Allow Notification is required!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Single Transaction Field-->
+          <div class="form-group row">
+            <label for="singleTransactionLimit" class="label col-sm-2 col-form-label">Single Transaction
+              Limit(TZS)</label>
+            <div class="col-sm-4">
+              <input type="number" formControlName="singleTransactionLimit" nbInput fullWidth
+                id="singleTransactionLimit" placeholder="Enter Single Transaction Limit..." />
+            </div>
+          </div>
+
+          <!-- Daily Transaction Field-->
+          <div class="form-group row">
+            <label for="dailyTransactionLimit" class="label col-sm-2 col-form-label">Daily Transaction
+              Limit(TZS)</label>
+            <div class="col-sm-4">
+              <input type="number" formControlName="dailyTransactionLimit" nbInput fullWidth id="dailyTransactionLimit"
+                placeholder="Enter Daily Transaction Limit..." />
+            </div>
+          </div>
+
+          <!--PromoCode Field-->
+          <div class="form-group row">
+            <label for="promoCode" class="label col-sm-2 col-form-label">Promo Code</label>
+            <div class="col-sm-4">
+              <input type="text" formControlName="promoCode" nbInput fullWidth id="promoCode"
+                placeholder="Enter Promo Code..." />
+            </div>
+          </div>
+
+          <!-- Portfolio Field-->
+          <div class="form-group row">
+            <label for="profolioCode" class="label col-sm-2 col-form-label">Portfolio Code</label>
+            <div class="col-sm-4">
+              <input type="text" formControlName="profolioCode" nbInput fullWidth id="profolioCode"
+                placeholder="Enter Portfolo Code..." />
+            </div>
+          </div>
+
+          <!-- Analysis Code 1 Field-->
+          <div class="form-group row">
+            <label for="analysisCode01" class="label col-sm-2 col-form-label">Analysis Code 01</label>
+            <div class="col-sm-4">
+              <input type="text" formControlName="analysisCode01" nbInput fullWidth id="analysisCode01"
+                placeholder="Enter Analysis Code 1..." />
+            </div>
+          </div>
+
+          <!-- Analysis Code 2 Field-->
+          <div class="form-group row">
+            <label for="analysisCode02" class="label col-sm-2 col-form-label">Analysis Code 02</label>
+            <div class="col-sm-4">
+              <input type="text" formControlName="analysisCode02" nbInput fullWidth id="analysisCode02"
+                placeholder="Enter Analysis Code 2..." />
+            </div>
+          </div>
+
+          <!-- Analysis Code 3 Field-->
+          <div class="form-group row">
+            <label for="analysisCode03" class="label col-sm-2 col-form-label">Analysis Code 03</label>
+            <div class="col-sm-4">
+              <input type="text" formControlName="analysisCode03" nbInput fullWidth id="analysisCode03"
+                placeholder="Enter Analysis Code 3..." />
+            </div>
+          </div>
+
+          <!-- Password Field-->
+          <div class="form-group row">
+            <label for="password" class="label col-sm-2 col-form-label">Password <span class="caption status-danger">
+                *</span></label>
+            <div class="col-sm-4">
+              <input type="password" formControlName="password" nbInput fullWidth id="password"
+                placeholder="Enter Password..." />
+              <div class="fieldInput" *ngIf="
+              (submitted && clientsForm.get('password').invalid) ||
+              (clientsForm.get('password').invalid && 
+              (clientsForm.get('password').dirty || clientsForm.get('password').touched)) ">
+                <p class="caption status-danger">Password is required!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirm Password Field-->
+          <div class="form-group row">
+            <label for="confirmPassword" class="label col-sm-2 col-form-label">Confirm Password <span
+                class="caption status-danger">
+                *</span></label>
+            <div class="col-sm-4">
+              <input type="password" formControlName="confirmPassword" nbInput fullWidth id="confirmPassword"
+                placeholder="Enter Confirm Password..." />
+              <div class="fieldInput" *ngIf="
+                (submitted && clientsForm.get('confirmPassword').invalid) ||
+                (clientsForm.get('confirmPassword').invalid && 
+                (clientsForm.get('confirmPassword').dirty || clientsForm.get('confirmPassword').touched)) ">
+                <p class="caption status-danger">Confirm Password is required!</p>
+              </div>
+
+              <div class="fieldInput" *ngIf="clientsForm.hasError('passwordNotMatch')">
+                <p class="caption status-danger">Password Not Matched</p>
+              </div>
             </div>
           </div>
 

@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { SarafuRoutingModule } from "./sarafu-routing.module";
 import { SarafuComponent } from "./sarafu.component";
-import { DashboardModule } from "../dashboard/dashboard.module";
+//import { DashboardModule } from "../dashboard/dashboard.module";
 import { SettingsModule } from "./settings/settings.module";
 import { ForceupdateModule } from "./forceupdate/forceupdate.module";
 import { UsersModule } from "./users/users.module";
@@ -15,7 +15,7 @@ import { IpwhitelistModule } from "./ipwhitelist/ipwhitelist.module";
   imports: [
     CommonModule,
     SarafuRoutingModule,
-    DashboardModule,
+    //  DashboardModule,
     SettingsModule,
     ForceupdateModule,
     UsersModule,
@@ -23,4 +23,4 @@ import { IpwhitelistModule } from "./ipwhitelist/ipwhitelist.module";
     IpwhitelistModule
   ]
 })
-export class SarafuModule {}
+export class SarafuModule { }

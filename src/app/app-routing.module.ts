@@ -26,36 +26,36 @@ const routes: Routes = [
     path: "auth",
     loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
   },
-  {
-    path: "authh",
-    component: NbAuthComponent,
-    children: [
-      {
-        path: "",
-        component: NbLoginComponent
-      },
-      {
-        path: "login",
-        component: NbLoginComponent
-      },
-      {
-        path: "register",
-        component: NbRegisterComponent
-      },
-      {
-        path: "logout",
-        component: NbLogoutComponent
-      },
-      {
-        path: "request-password",
-        component: NbRequestPasswordComponent
-      },
-      {
-        path: "reset-password",
-        component: NbResetPasswordComponent
-      }
-    ]
-  },
+  /* {
+     path: "authh",
+     component: NbAuthComponent,
+     children: [
+       {
+         path: "",
+         component: NbLoginComponent
+       },
+       {
+         path: "login",
+         component: NbLoginComponent
+       },
+       {
+         path: "register",
+         component: NbRegisterComponent
+       },
+       {
+         path: "logout",
+         component: NbLogoutComponent
+       },
+       {
+         path: "request-password",
+         component: NbRequestPasswordComponent
+       },
+       {
+         path: "reset-password",
+         component: NbResetPasswordComponent
+       }
+     ]
+   },*/
   { path: "", redirectTo: "auth", pathMatch: "full" },
   { path: "**", redirectTo: "auth" }
 ];

@@ -27,10 +27,12 @@ import { ShareModule } from "../azam/share/share.module";
 import { CookieService } from "ngx-cookie-service";
 import { AuthComponent } from "./auth.component";
 import { LoginComponent } from "./login/login.component";
-import { ToastrComponent } from "./toastr/toastr.component";
+import { LogoutComponent } from './logout/logout.component';
+
+
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, ToastrComponent],
+  declarations: [AuthComponent, LoginComponent, LogoutComponent],
   imports: [
     ngFormsModule,
     RouterModule,
@@ -58,4 +60,4 @@ import { ToastrComponent } from "./toastr/toastr.component";
   ],
   providers: [CookieService]
 })
-export class AuthModule {}
+export class AuthModule { }

@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LocalDataSource } from "ng2-smart-table";
 import { SmartTableData } from "../../../../@core/data/smart-table";
+import { ClientsService } from '../../../services/sarafu/clients.service';
+
 
 @Component({
   selector: "ngx-list",
@@ -26,44 +28,61 @@ export class ListComponent implements OnInit {
       confirmDelete: true
     },
     columns: {
-      id: {
+      ID: {
         title: "ID",
         type: "number"
       },
-      firstName: {
-        title: "First Name",
-        type: "string"
-      },
-      lastName: {
-        title: "Last Name",
-        type: "string"
-      },
-      username: {
-        title: "Username",
+      name: {
+        title: "Name",
         type: "string"
       },
       email: {
-        title: "E-mail",
+        title: "Email",
         type: "string"
       },
-      age: {
-        title: "Age",
-        type: "number"
+      mobileNumber: {
+        title: "Mobile",
+        type: "string"
+      },
+      appID: {
+        title: "App",
+        type: "string"
+      },
+      roleID: {
+        title: "Role",
+        type: "string"
       }
     }
   };
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private route: ActivatedRoute, private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private route: ActivatedRoute,
+    // private service: SmartTableData,
+    private service: ClientsService
+  ) {
+
+    // const data = this.service.getData();
+    // debugger;
+    //  this.source.load(data);
   }
 
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       this.moduleName = params.type;
     });
+
+    // Get Data
+    this.service.getData().subscribe(
+      (response: any) => {
+        console.log('Res=', response);
+        this.source.load(response);
+        if (response.status === 200) {
+          // this.subCategories = response.data;
+        }
+      },
+      error => { console.error('Error in get Data=', error); }
+    );
   }
 
   onDeleteConfirm(event): void {

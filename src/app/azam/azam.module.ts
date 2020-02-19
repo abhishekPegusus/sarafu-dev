@@ -19,11 +19,11 @@ import {
 
 // import { ThemeModule } from "../@theme/theme.module";
 import { AzamComponent } from "./azam.component";
-import { DashboardModule } from "./dashboard/dashboard.module";
+// import { DashboardModule } from "./dashboard/dashboard.module";
 import { ECommerceModule } from "./e-commerce/e-commerce.module";
 import { AzamRoutingModule } from "./azam-routing.module";
 import { MiscellaneousModule } from "./miscellaneous/miscellaneous.module";
-import { GatewayTableComponent } from "./gateway/gateway-table.component";
+// import { GatewayTableComponent } from "./gateway/gateway-table.component";
 import { Ng2SmartTableModule } from "ng2-smart-table";
 import { CommonModule } from "@angular/common";
 import { ShareModule } from "./share/share.module";
@@ -49,11 +49,11 @@ import { ShareModule } from "./share/share.module";
     // ThemeModule,
     ShareModule,
     CommonModule,
-    DashboardModule,
+    //  DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
     Ng2SmartTableModule
   ],
-  declarations: [AzamComponent, GatewayTableComponent]
+  declarations: [AzamComponent, /*GatewayTableComponent*/]
 })
-export class AzamModule {}
+export class AzamModule { }

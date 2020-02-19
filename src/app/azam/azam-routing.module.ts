@@ -2,9 +2,9 @@ import { RouterModule, Routes } from "@angular/router";
 import { NgModule } from "@angular/core";
 
 import { AzamComponent } from "./azam.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { GatewayTableComponent } from "./gateway/gateway-table.component";
 import { ECommerceComponent } from "./e-commerce/e-commerce.component";
+//import { DashboardComponent } from "./dashboard/dashboard.component";
+// import { GatewayTableComponent } from "./gateway/gateway-table.component";
 import { NotFoundComponent } from "./miscellaneous/not-found/not-found.component";
 
 const routes: Routes = [
@@ -16,14 +16,14 @@ const routes: Routes = [
         path: "dashboard",
         component: ECommerceComponent
       },
-      {
-        path: "iot-dashboard",
-        component: DashboardComponent
-      },
-      {
-        path: "gateway/:type",
-        component: GatewayTableComponent
-      },
+      // {
+      //   path: "iot-dashboard",
+      //   component: DashboardComponent
+      // },
+      // {
+      //   path: "gateway/:type",
+      //   component: GatewayTableComponent
+      // },
       {
         path: "sarafu",
         loadChildren: () =>
@@ -147,4 +147,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AzamRoutingModule {}
+export class AzamRoutingModule { }
