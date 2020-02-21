@@ -3,9 +3,12 @@
     <nb-card>
       <nb-card-header>
         <div class="button-css ">
-          <div>Add Client</div>
+          <div>{{ editMode == true ? "Update":"Add"}} Client</div>
           <div class="buttons-row ">
-            <button [routerLink]="['../']" nbButton outline>
+            <button *ngIf="editMode == true" [routerLink]="['../../']" nbButton outline>
+              <nb-icon icon="arrow-back"></nb-icon> Back
+            </button>
+            <button *ngIf="editMode == false" [routerLink]="['../']" nbButton outline>
               <nb-icon icon="arrow-back"></nb-icon> Back
             </button>
           </div>
@@ -107,10 +110,13 @@
           <div class="form-group row">
             <label class="col-sm-2 label">Country <span class="caption status-danger"> *</span></label>
             <div class="col-sm-4">
-              <nb-select formControlName="countryID" selected="" fullWidth>
+
+              <ng-select [items]="countries" bindLabel="name" bindValue="ID" formControlName="countryID" fullWidth>
+              </ng-select>
+              <!-- <nb-select formControlName="countryID" selected="" fullWidth>
                 <nb-option value="">Select Country</nb-option>
                 <nb-option *ngFor="let country of countries" [value]="country.ID">{{ country.name }}</nb-option>
-              </nb-select>
+              </nb-select>-->
               <div class="fieldInput" *ngIf="
               (submitted && clientsForm.get('countryID').invalid) ||
               (clientsForm.get('countryID').invalid && 
@@ -124,10 +130,12 @@
           <div class="form-group row">
             <label class="col-sm-2 label">App <span class="caption status-danger"> *</span></label>
             <div class="col-sm-4">
-              <nb-select formControlName="appID" selected="" fullWidth>
+              <ng-select [items]="apps" bindLabel="appName" bindValue="ID" formControlName="appID" fullWidth>
+              </ng-select>
+              <!--<nb-select formControlName="appID" selected="" fullWidth>
                 <nb-option value="">Select App</nb-option>
                 <nb-option *ngFor="let app of apps" [value]="app.ID">{{ app.appName }}</nb-option>
-              </nb-select>
+              </nb-select>-->
               <div class="fieldInput" *ngIf="
               (submitted && clientsForm.get('appID').invalid) ||
               (clientsForm.get('appID').invalid && 
@@ -141,16 +149,25 @@
           <div class="form-group row">
             <label class="col-sm-2 label">Role <span class="caption status-danger"> *</span></label>
             <div class="col-sm-4">
-              <nb-select formControlName="roleID" selected="" fullWidth>
+              <ng-select [items]="roles" bindLabel="RoleName" bindValue="ID" formControlName="roleID" fullWidth>
+              </ng-select>
+              <!--<nb-select formControlName="roleID" selected="" fullWidth>
                 <nb-option value="">Select Role</nb-option>
                 <nb-option *ngFor="let role of roles" [value]="role.ID">{{ role.RoleName }}</nb-option>
-              </nb-select>
+              </nb-select>-->
               <div class="fieldInput" *ngIf="
               (submitted && clientsForm.get('roleID').invalid) ||
               (clientsForm.get('roleID').invalid && 
               (clientsForm.get('roleID').dirty || clientsForm.get('roleID').touched)) ">
                 <p class="caption status-danger">Role is required!</p>
               </div>
+            </div>
+          </div>
+          <!-- Status Field-->
+          <div class="form-group row">
+            <label class="col-sm-2 label">Active Status <span class="caption status-danger"> *</span></label>
+            <div class="col-sm-4">
+              <nb-toggle formControlName="status" status="primary" [(checked)]="checked"></nb-toggle>
             </div>
           </div>
 
@@ -200,7 +217,7 @@
           <div class="form-group row">
             <label for="promoCode" class="label col-sm-2 col-form-label">Promo Code</label>
             <div class="col-sm-4">
-              <input type="text" formControlName="promoCode" nbInput fullWidth id="promoCode"
+              <input type="number" formControlName="promoCode" nbInput fullWidth id="promoCode"
                 placeholder="Enter Promo Code..." />
             </div>
           </div>
@@ -209,7 +226,7 @@
           <div class="form-group row">
             <label for="profolioCode" class="label col-sm-2 col-form-label">Portfolio Code</label>
             <div class="col-sm-4">
-              <input type="text" formControlName="profolioCode" nbInput fullWidth id="profolioCode"
+              <input type="number" formControlName="profolioCode" nbInput fullWidth id="profolioCode"
                 placeholder="Enter Portfolo Code..." />
             </div>
           </div>
@@ -218,7 +235,7 @@
           <div class="form-group row">
             <label for="analysisCode01" class="label col-sm-2 col-form-label">Analysis Code 01</label>
             <div class="col-sm-4">
-              <input type="text" formControlName="analysisCode01" nbInput fullWidth id="analysisCode01"
+              <input type="number" formControlName="analysisCode01" nbInput fullWidth id="analysisCode01"
                 placeholder="Enter Analysis Code 1..." />
             </div>
           </div>
@@ -227,7 +244,7 @@
           <div class="form-group row">
             <label for="analysisCode02" class="label col-sm-2 col-form-label">Analysis Code 02</label>
             <div class="col-sm-4">
-              <input type="text" formControlName="analysisCode02" nbInput fullWidth id="analysisCode02"
+              <input type="number" formControlName="analysisCode02" nbInput fullWidth id="analysisCode02"
                 placeholder="Enter Analysis Code 2..." />
             </div>
           </div>
@@ -236,14 +253,15 @@
           <div class="form-group row">
             <label for="analysisCode03" class="label col-sm-2 col-form-label">Analysis Code 03</label>
             <div class="col-sm-4">
-              <input type="text" formControlName="analysisCode03" nbInput fullWidth id="analysisCode03"
+              <input type="number" formControlName="analysisCode03" nbInput fullWidth id="analysisCode03"
                 placeholder="Enter Analysis Code 3..." />
             </div>
           </div>
 
           <!-- Password Field-->
           <div class="form-group row">
-            <label for="password" class="label col-sm-2 col-form-label">Password <span class="caption status-danger">
+            <label for="password" class="label col-sm-2 col-form-label">Password <span *ngIf="editMode==false"
+                class="caption status-danger">
                 *</span></label>
             <div class="col-sm-4">
               <input type="password" formControlName="password" nbInput fullWidth id="password"
@@ -260,7 +278,7 @@
           <!-- Confirm Password Field-->
           <div class="form-group row">
             <label for="confirmPassword" class="label col-sm-2 col-form-label">Confirm Password <span
-                class="caption status-danger">
+                *ngIf="editMode==false" class="caption status-danger">
                 *</span></label>
             <div class="col-sm-4">
               <input type="password" formControlName="confirmPassword" nbInput fullWidth id="confirmPassword"
@@ -281,7 +299,7 @@
           <div class="form-group row">
             <div class="offset-sm-2 col-sm-4">
               <button type="submit" nbButton hero status="primary">
-                <nb-icon icon="save"></nb-icon>SAVE
+                <nb-icon icon="save"></nb-icon>{{ editMode == true ? "Update":"SAVE"}}
               </button>
             </div>
           </div>

@@ -2,3 +2,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+
+:host::ng-deep   .ng2-smart-actions ng2-st-tbody-edit-delete{
+  display: none !important;
+  }

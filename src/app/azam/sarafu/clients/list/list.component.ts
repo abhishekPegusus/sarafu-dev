@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LocalDataSource } from "ng2-smart-table";
-import { SmartTableData } from "../../../../@core/data/smart-table";
 import { ClientsService } from '../../../services/sarafu/clients.service';
 
 
@@ -11,8 +10,25 @@ import { ClientsService } from '../../../services/sarafu/clients.service';
   styleUrls: ["./list.component.scss"]
 })
 export class ListComponent implements OnInit {
+
+  constructor(private route: ActivatedRoute, private router: Router, private service: ClientsService) { }
+
+
   moduleName = "";
   settings = {
+    actions: {
+      add: false,
+      edit: false,
+      delete: false,
+      class: "action-column",
+      custom: [
+        {
+          title: '<i class="nb-edit"></i>',
+          name: 'Edit'
+        }
+      ],
+      position: 'right',
+    },
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -21,7 +37,8 @@ export class ListComponent implements OnInit {
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>'
+      cancelButtonContent: '<i class="nb-close"></i>',
+      confirmEdit: true
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -57,15 +74,6 @@ export class ListComponent implements OnInit {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private route: ActivatedRoute,
-    // private service: SmartTableData,
-    private service: ClientsService
-  ) {
-
-    // const data = this.service.getData();
-    // debugger;
-    //  this.source.load(data);
-  }
 
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
@@ -75,21 +83,37 @@ export class ListComponent implements OnInit {
     // Get Data
     this.service.getData().subscribe(
       (response: any) => {
-        console.log('Res=', response);
-        this.source.load(response);
+        const data = response.map(value => {
+          value.appID = "Sarafu";
+          value.roleID = "Admin";
+          return value;
+        });
+        this.source.load(data);
         if (response.status === 200) {
-          // this.subCategories = response.data;
+
         }
       },
       error => { console.error('Error in get Data=', error); }
     );
   }
 
+  onCustomAction(event) {
+    this.router.navigate([`azam/sarafu/clients/edit/${event.data.ID}`]);
+  }
   onDeleteConfirm(event): void {
-    if (window.confirm("Are you sure you want to delete?")) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+    this.service.delete(event.data.ID).subscribe(
+      (response: any) => {
+        this.source.load(response);
+        if (response.status === 200) {
+
+        }
+      },
+      error => { console.error('Error in delete Data=', error); }
+    );
+    // if (window.confirm("Are you sure you want to delete?")) {
+    //   event.confirm.resolve();
+    // } else {
+    //   event.confirm.reject();
+    // }
   }
 }

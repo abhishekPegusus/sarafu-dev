@@ -10,8 +10,11 @@ import {
   NbInputModule,
   NbRadioModule,
   NbSelectModule,
-  NbUserModule
+  NbUserModule,
+  NbToggleModule
 } from "@nebular/theme";
+import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { NbMomentDateModule } from '@nebular/moment';
 import { ClientsRoutingModule } from "./clients-routing.module";
 import { ClientsComponent } from "./clients.component";
@@ -23,6 +26,9 @@ import { Ng2SmartTableModule } from "ng2-smart-table";
 @NgModule({
   declarations: [ClientsComponent, ListComponent, FormComponent],
   imports: [
+    NgOptionHighlightModule,
+    NgSelectModule,
+    NbToggleModule,
     CommonModule,
     ClientsRoutingModule,
     Ng2SmartTableModule,

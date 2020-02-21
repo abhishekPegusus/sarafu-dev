@@ -3,7 +3,7 @@ export class Clients {
   public gender: string;
   public appID: number;
   public email: string;
-  public mobilenumber: string;
+  public mobileNumber: string;
 
 
   public roleID: number;
@@ -15,6 +15,7 @@ export class Clients {
   public analysisCode01: string;
   public analysisCode02: string;
   public analysisCode03: string;
+  public status: string;
 
   public password: string;
   public confirmPassword: string;

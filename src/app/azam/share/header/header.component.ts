@@ -53,8 +53,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private breakpointService: NbMediaBreakpointsService
   ) { }
 
-  logout() { alert("Clicked") }
-
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 

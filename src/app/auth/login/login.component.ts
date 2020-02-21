@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe(
         (response: any) => {
-          console.log('User=', response)
+          // console.log('User=', response)
           if (response.token && response.token !== "") {
             this.CommonService.showToast("Login Success!!!", "You have logged-in successfully.", "success");
             this.cookieService.set("userInfo", JSON.stringify({ isLoggedIn: true, userType: "superadmin" }));

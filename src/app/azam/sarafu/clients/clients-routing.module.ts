@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: "add",
     component: FormComponent
+  },
+  {
+    path: "edit/:id",
+    component: FormComponent
   }
 ];
 
@@ -18,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ClientsRoutingModule {}
+export class ClientsRoutingModule { }

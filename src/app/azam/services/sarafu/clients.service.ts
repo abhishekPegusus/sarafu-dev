@@ -11,6 +11,11 @@ import { API } from '../../../../environments/environment';
 export class ClientsService {
 
   constructor(private http: HttpClient) { }
+  findById(id: string): Observable<Clients> {
+    let url = API.BASE_URL + "/users/" + id;
+    let headers = new HttpHeaders().set("Accept", "application/json");
+    return this.http.get<Clients>(url, { headers });
+  }
   getData(pageNumber?, size?, filter?): Observable<Clients[]> {
     let url = API.BASE_URL + "/users";
     let headers = new HttpHeaders().set("Accept", "application/json");
@@ -45,11 +50,17 @@ export class ClientsService {
     return this.http.post<Clients>(url, entity, { headers });
   }
 
-  update(entity: Clients): Observable<Clients> {
-    let url = API.BASE_URL + `/cms/category/update`;
+  update(entity: Clients, ID: any): Observable<Clients> {
+    let url = API.BASE_URL + `/users/${ID}`;
     let headers = new HttpHeaders().set("Accept", "application/json");
 
-    return this.http.put<Clients>(url, entity, { headers });
+    return this.http.patch<Clients>(url, entity, { headers });
+  }
+
+  delete(id: string): Observable<Clients> {
+    let url = API.BASE_URL + `/users/${id}/`;
+    let headers = new HttpHeaders().set("Accept", "application/json");
+    return this.http.delete<Clients>(url, { headers });
   }
 
 }
